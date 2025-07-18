@@ -59,9 +59,10 @@ namespace NewsAggregator.Services
             {
                 throw new Exception($"Network error while fetching {category} news", ex);
             }
+           
             catch (Exception ex)
-            {
-                throw new Exception($"Error processing {category} news", ex);
+            {   
+                throw new Exception($"Error processing {category} news:{ex.InnerException?.Message ?? ex.Message}", ex);
             }
         }
 
