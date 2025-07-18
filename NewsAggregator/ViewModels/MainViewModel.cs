@@ -46,10 +46,6 @@ namespace NewsAggregator.ViewModels
             }
         }
 
-        public bool IsLightTheme => CurrentThemeMode == ThemeMode.Light;
-        public bool IsDarkTheme => CurrentThemeMode == ThemeMode.Dark;
-        public bool IsSystemTheme => CurrentThemeMode == ThemeMode.System;
-
         public ICommand RefreshCommand => _refreshCommand ??= new RelayCommand(async () => await RefreshAllAsync());
 
         public ICommand SetThemeCommand => _setThemeCommand ??= new RelayCommand<ThemeMode>(async (mode) => await SetThemeAsync(mode));
